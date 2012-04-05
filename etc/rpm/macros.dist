@@ -1,0 +1,5 @@
+# dist macros.
+
+%fedora		16
+%dist		.fc16
+%fc16		1

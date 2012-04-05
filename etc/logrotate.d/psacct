@@ -1,0 +1,15 @@
+# Logrotate file for psacct RPM
+
+/var/account/pacct {
+    compress
+    delaycompress
+    notifempty
+    daily
+    rotate 31
+    create 0600 root root
+    postrotate
+       if /etc/init.d/psacct status >/dev/null 2>&1; then
+           /usr/sbin/accton /var/account/pacct
+       fi
+    endscript
+}
